@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul,
+li {
+  list-style: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+html {
+  font-family: 'Roboto', sans-serif;
 }
-
-.App-link {
-  color: #61dafb;
+body {
+  background: #141414;
+  color: #f3f3f3;
+  overflow-x: hidden;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+img {
+  display: block;
+}
+button {
+  border: none;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: initial;
+}
+.containerMovies {
+  padding-left: 50px;
+}
+.container {
+  padding: 0 50px;
+}
+.voteAvarege {
+  color: #009c4c;
+  font-weight: bold;
+}
+.numberOfSeasons {
+  font-weight: bold;
+  opacity: 0.8;
+}
+.modalAnimation {
+  transform: scale(0.5);
+  opacity: 0;
+  animation: modalAnimation 0.3s alternate forwards;
+  transition: all 0.3;
+}
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+@keyframes modalAnimation {
   to {
-    transform: rotate(360deg);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 0 14px;
+  }
+  .containerMovies {
+    padding-left: 14px;
+  }
+  .modalAnimation {
+    transform: translate3d(0, 500px, 0);
+    opacity: 0;
+    animation: modalAnimation 0.3s alternate forwards;
+    transition: all 0.3 ease-in-out;
+  }
+  @keyframes modalAnimation {
+    to {
+      transform: initial;
+      opacity: 1;
+    }
   }
 }

@@ -1,0 +1,43 @@
+.loadingWrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.loadingImg {
+  max-width: 150px;
+}
+.circlesWrapper {
+  margin-top: 50px;
+  display: flex;
+  gap: 6px;
+}
+.circle {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b81d24;
+
+  animation: animate 0.4s alternate infinite;
+}
+.circle:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.circle:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.circle:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 30px, 0);
+  }
+}
