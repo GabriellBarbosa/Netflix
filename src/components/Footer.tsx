@@ -16,9 +16,8 @@ const Footer = () => {
             <img className={styles.linkImg} src={Linkedin} alt="Linkedin" />
           </a>
         </div>
-        <p>Thanks for the visit  👊 </p>      
+        <p>Thanks for the visit 👊</p>      
       </div>
-
     </footer>
   )
 }
