@@ -6,11 +6,8 @@ import Notification from '../assets/Notification.svg';
 import User from '../assets/User.png';
 import Logo from '../assets/logo-mobile.png';
 
-
-
-
 const Header = () => {
-  const header = React.useRef();
+  const header = React.useRef<HTMLElement>(null);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +23,7 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     }
   }, [])
- 
+
   return (
     <header ref={header} className={styles.header}>
       <div className={`${styles.headerContent} container`}>
