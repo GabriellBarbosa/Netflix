@@ -3,8 +3,17 @@ import styles from './FeaturedMovieInfo.module.css';
 import infoImg from '../assets/information.svg'
 import { GlobalContext } from '../GlobalContext';
 
+interface FeaturedMovie {
+  id: number;
+  name: string;
+  first_air_date: string;
+  overview: string;
+  backdrop_path: string;
+  number_of_seasons: number;
+  vote_average: number;
+}
 
-const FeaturedMovieInfo = ({ featured }) => {
+const FeaturedMovieInfo = ({ featured }: { featured: FeaturedMovie }) => {
   const tvContext = React.useContext(GlobalContext);
   const {setId, setOpen, setType} = tvContext;
 
