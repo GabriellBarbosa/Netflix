@@ -7,24 +7,37 @@ import DownArrow from '../assets/down-arrow.svg';
 
 import { GlobalContext } from '../GlobalContext';
 
+interface Result {
+  id: number;
+  vote_average: number;
+  name: string;
+  title: string;
+  media_type: string;
+  backdrop_path: string;
+  poster_path: string;
+}
 
-const MovieList = ({result, type}) => {
+const MovieList = ({result, type}: { result: Result, type: string }) => {
 const movieContext = React.useContext(GlobalContext);
 const {setId, setOpen, setType, setMediaType} = movieContext;
 
-const container = React.useRef();
+const container = React.useRef<HTMLDivElement>(null);
 const voteAverage = `${String(result.vote_average.toFixed(1)).replace('.', '')}%`;
 const urlImage = 'https://image.tmdb.org/t/p/w300/';
 
 // adiciona a classe hover quando o mouse está em cima do elemento
 const mouseHover = () => {
   const element = container.current;
-  element.classList.add(styles.hover);
+  if (element) {
+    element.classList.add(styles.hover);
+  }
 }
 // remove a classe hover quando o mouse sai de cima do elemento
 const mouseLeave = () => {
   const element = container.current;
-  element.classList.remove(styles.hover);
+  if (element) {
+    element.classList.remove(styles.hover);
+  }
 }
 
 const handleClick = () => {
