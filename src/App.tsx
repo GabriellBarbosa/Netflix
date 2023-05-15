@@ -10,10 +10,21 @@ import MovieModal from './components/MovieModal';
 import Loading from './components/Loading';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { Result } from './components/MovieList';
 
+export interface Item {
+  title: string;
+  type: string;
+  slug: string;
+  items: {
+    response: {
+      results: Result[]
+    }
+  }
+}
 
 const App = () => {
-  const [data, setData] = React.useState();
+  const [data, setData] = React.useState<Item[]>();
   const [featured, setFeatured] = React.useState();
   React.useEffect(() => {
     const {api} = movieList;
@@ -26,7 +37,7 @@ const App = () => {
     
     // escolhe uma série aleatóriamente da segunda lista
     // puxada anteriormente
-    const pullFeaturedMovie = async (list) => {
+    const pullFeaturedMovie = async (list: Item[]) => {
       const randomNumber = Math.round(Math.random() * 20);
       const tvSerieList = list[1].items.response.results;
       const choseMovieId = tvSerieList[randomNumber].id;
