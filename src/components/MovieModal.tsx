@@ -4,33 +4,33 @@ import { GlobalContext } from '../GlobalContext';
 import { pullData, api_key } from '../api';
 import ReactPlayer from 'react-player';
 import Close from '../assets/Close.svg';
+import { Result } from './MovieList';
 
 const MovieModal = () => {
   const movieContext = React.useContext(GlobalContext);  
-  const { mediaType, type, id, setOpen, open } = movieContext;
-  const [data, setData] = React.useState();
-  const [video, setVideo] = React.useState();
+  const [data, setData] = React.useState<Result | null>(null);
+  const [video, setVideo] = React.useState<string>('');
 
   let voteAvarege;
   if (data) voteAvarege = String(data.vote_average.toFixed(1)).replace('.', '');
   const youtubeUrl = 'https://www.youtube.com/watch?v=';
 
   React.useEffect(() => {
-    const pullInfo = async (theType) => {
-      const { response, request } = await pullData(`${theType}/${id}?api_key=${api_key}`);
+    const pullInfo = async (theType: string) => {
+      const { response, request } = await pullData(`${theType}/${movieContext?.id}?api_key=${api_key}`);
       if(request.ok) {
         setData(response);
       }
     }
-    const pullVideo = async (theType) => {
-      const { response, request } = await pullData(`${theType}/${id}/videos?api_key=${api_key}`);
+    const pullVideo = async (theType: string) => {
+      const { response, request } = await pullData(`${theType}/${movieContext?.id}/videos?api_key=${api_key}`);
       if(request.ok && response.results.length) {
         setVideo(`${youtubeUrl}${response.results[0].key}`);
       }
     }
-    switch(type) {
+    switch(movieContext?.type) {
       case 'all':
-        if(mediaType === 'movie' && open) {
+        if(movieContext?.mediaType === 'movie' && movieContext?.open) {
           pullInfo('movie');
           pullVideo('movie');
         } else {
@@ -39,42 +39,42 @@ const MovieModal = () => {
         }
         break;
       case 'movie':
-        if(open) {
+        if(movieContext?.open) {
           pullInfo('movie');
           pullVideo('movie');
         }
 
         break;
       case 'tv':
-        if(open) {
+        if(movieContext?.open) {
           pullInfo('tv');
           pullVideo('tv');
         }
         break;
       default:
-        if(open) {
+        if(movieContext?.open) {
           pullInfo('movie');
           pullVideo('movie');
         }
 
     }
-  }, [id, mediaType, type, open]);
+  }, [movieContext?.id, movieContext?.mediaType, movieContext?.type, movieContext?.open]);
 
   const reset = () => {
-    setOpen(false);
-    setVideo(null);
+    movieContext?.setOpen(false);
+    setVideo('');
     setData(null);
   }
   const handleClick = () => {
     reset();
   }
-  const clickOutSide = ({ currentTarget, target }) => {
+  const clickOutSide = ({ currentTarget, target }: React.MouseEvent<HTMLElement>) => {
     if (target === currentTarget) {
       reset();
     }
   }
 
-  if(!open || !data) return null
+  if(!movieContext?.open || !data) return null
   return (
     <div className={styles.modalWrapper} onClick={clickOutSide}>
       <div className={`${styles.modal} modalAnimation`}>
@@ -107,7 +107,6 @@ const MovieModal = () => {
               </div>
             )
             }
-            {data.number_of_seasons === true}
           </div>
           <p className={styles.overview}>{data.overview}</p> 
         </div>

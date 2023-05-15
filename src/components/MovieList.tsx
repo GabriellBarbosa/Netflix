@@ -10,11 +10,15 @@ import { GlobalContext } from '../GlobalContext';
 export interface Result {
   id: string;
   name: string;
-  vote_average: number;
   title: string;
+  overview: string;
   media_type: string;
   backdrop_path: string;
   poster_path: string;
+  vote_average: number;
+  number_of_seasons: number;
+  release_date: string;
+  first_air_date: string;
 }
 
 const MovieList = ({result, type}: { result: Result, type: string }) => {
