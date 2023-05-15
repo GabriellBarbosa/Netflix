@@ -1,7 +1,19 @@
 import React from 'react'
 import Movie from './Movie';
+import { Result } from './MovieList';
 
-const Home = ({data}) => {
+export interface Item {
+  title: string;
+  type: string;
+  slug: string;
+  items: {
+    response: {
+      results: Result[]
+    }
+  }
+}
+
+const Home = ({data}: { data: Item[] }) => {
   if(!data) return null;
   return (
     <main>

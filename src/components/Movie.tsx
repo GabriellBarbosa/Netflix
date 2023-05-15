@@ -3,18 +3,9 @@ import MovieList, { Result } from './MovieList';
 import styles from './Movie.module.css';
 import leftArrow from '../assets/left-arrow.svg'
 import RightArrow from '../assets/right-arrow.svg'
+import { Item } from './Home';
 
-interface Item {
-  title: string;
-  type: string;
-  items: {
-    response: {
-      results: Result[]
-    }
-  }
-}
-
-const Movie= ({item}: { item: Item }) => {
+const Movie= ({ item }: { item: Item }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
 
   // Pega o valor do translateX da lista de filmes. Se não
