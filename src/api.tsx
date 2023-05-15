@@ -3,7 +3,7 @@ export const api_key = 'f91aada4d1ee567f301885f614e26e94';
 
 // Função para puxar a lista de filmes de acordo com o endpoint 
 // e retorna a resposta json
-export const pullData = async (endpoint) => {
+export const pullData = async (endpoint: string) => {
     const request = await fetch(`${baseURL}${endpoint}`);
     const response = await request.json();
     return {response, request};
