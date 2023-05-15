@@ -8,9 +8,9 @@ import DownArrow from '../assets/down-arrow.svg';
 import { GlobalContext } from '../GlobalContext';
 
 export interface Result {
-  id: number;
-  vote_average: number;
+  id: string;
   name: string;
+  vote_average: number;
   title: string;
   media_type: string;
   backdrop_path: string;
@@ -19,7 +19,8 @@ export interface Result {
 
 const MovieList = ({result, type}: { result: Result, type: string }) => {
 const movieContext = React.useContext(GlobalContext);
-const {setId, setOpen, setType, setMediaType} = movieContext;
+// const {setId, setOpen, setType, setMediaType} = movieContext;
+const context = movieContext;
 
 const container = React.useRef<HTMLDivElement>(null);
 const voteAverage = `${String(result.vote_average.toFixed(1)).replace('.', '')}%`;
@@ -41,11 +42,11 @@ const mouseLeave = () => {
 }
 
 const handleClick = () => {
-  setType(type);
-  setId(result.id);
-  setOpen(true);
+  context?.setType(type);
+  context?.setId(result.id);
+  context?.setOpen(true);
   if (result.media_type) {
-    setMediaType(result.media_type);
+    context?.setMediaType(result.media_type);
   }
 }
   return (

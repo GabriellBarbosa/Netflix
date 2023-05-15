@@ -4,7 +4,7 @@ import infoImg from '../assets/information.svg'
 import { GlobalContext } from '../GlobalContext';
 
 interface FeaturedMovie {
-  id: number;
+  id: string;
   name: string;
   first_air_date: string;
   overview: string;
@@ -15,14 +15,15 @@ interface FeaturedMovie {
 
 const FeaturedMovieInfo = ({ featured }: { featured: FeaturedMovie }) => {
   const tvContext = React.useContext(GlobalContext);
-  const {setId, setOpen, setType} = tvContext;
+  // const {setId, setOpen, setType} = tvContext;
+  const context = tvContext;
 
   const voteAverage = String(featured.vote_average.toFixed(1)).replace('.', '');
   
   const handleClick = () => {
-    setType('tv');
-    setId(featured.id);
-    setOpen(true);
+    context?.setType('tv');
+    context?.setId(featured.id);
+    context?.setOpen(true);
   }
 
   return (
