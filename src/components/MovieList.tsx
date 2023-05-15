@@ -7,7 +7,7 @@ import DownArrow from '../assets/down-arrow.svg';
 
 import { GlobalContext } from '../GlobalContext';
 
-interface Result {
+export interface Result {
   id: number;
   vote_average: number;
   name: string;
