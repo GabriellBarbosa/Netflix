@@ -1,6 +1,6 @@
 import React from 'react'
 import MovieList, { Result } from '../MovieList';
-import styles from './Movie.module.css';
+import styles from './style.module.css';
 import leftArrow from '../../assets/left-arrow.svg'
 import RightArrow from '../../assets/right-arrow.svg'
 import { Item } from '../Home';
