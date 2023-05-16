@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './FeaturedMovieInfo.module.css';
-import infoImg from '../assets/information.svg'
-import { GlobalContext } from '../GlobalContext';
+import infoImg from '../../assets/information.svg'
+import { GlobalContext } from '../../GlobalContext';
 
 interface FeaturedMovie {
   id: string;
