@@ -10,7 +10,7 @@ import MovieModal from './components/MovieModal';
 import Loading from './components/Loading';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { Result } from './components/MovieList';
+import { Result } from './components/MovieList/MovieList';
 
 export interface Item {
   title: string;

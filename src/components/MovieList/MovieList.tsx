@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './MovieList.module.css';
-import Play from '../assets/Play.svg';
-import Like from '../assets/Like.svg';
-import AddToList from '../assets/Plus.svg';
-import DownArrow from '../assets/down-arrow.svg';
+import Play from '../../assets/Play.svg';
+import Like from '../../assets/Like.svg';
+import AddToList from '../../assets/Plus.svg';
+import DownArrow from '../../assets/down-arrow.svg';
 
-import { GlobalContext } from '../GlobalContext';
+import { GlobalContext } from '../../GlobalContext';
 
 export interface Result {
   id: string;

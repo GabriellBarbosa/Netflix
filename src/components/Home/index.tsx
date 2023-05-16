@@ -1,6 +1,6 @@
 import React from 'react'
 import Movie from '../Movie';
-import { Result } from '../MovieList';
+import { Result } from '../MovieList/MovieList';
 
 export interface Item {
   title: string;

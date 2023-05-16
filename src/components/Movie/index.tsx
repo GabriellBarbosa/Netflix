@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieList, { Result } from '../MovieList';
+import MovieList, { Result } from '../MovieList/MovieList';
 import styles from './style.module.css';
 import leftArrow from '../../assets/left-arrow.svg'
 import RightArrow from '../../assets/right-arrow.svg'

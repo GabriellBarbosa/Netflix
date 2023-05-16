@@ -4,7 +4,7 @@ import { GlobalContext } from '../GlobalContext';
 import { pullData, api_key } from '../api';
 import ReactPlayer from 'react-player';
 import Close from '../assets/Close.svg';
-import { Result } from './MovieList';
+import { Result } from './MovieList/MovieList';
 
 const MovieModal = () => {
   const movieContext = React.useContext(GlobalContext);  
