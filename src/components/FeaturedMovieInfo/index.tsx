@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './FeaturedMovieInfo.module.css';
+import styles from './style.module.css';
 import infoImg from '../../assets/information.svg'
 import { GlobalContext } from '../../GlobalContext';
 
