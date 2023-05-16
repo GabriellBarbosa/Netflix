@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './Header.module.css';
-import Search from '../assets/Search.svg';
-import Gift from '../assets/Gift.svg';
-import Notification from '../assets/Notification.svg';
-import User from '../assets/User.png';
-import Logo from '../assets/logo-mobile.png';
+import Search from '../../assets/Search.svg';
+import Gift from '../../assets/Gift.svg';
+import Notification from '../../assets/Notification.svg';
+import User from '../../assets/User.png';
+import Logo from '../../assets/logo-mobile.png';
 
 const Header = () => {
   const header = React.useRef<HTMLElement>(null);
