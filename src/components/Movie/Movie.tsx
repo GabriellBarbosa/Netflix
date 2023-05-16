@@ -1,9 +1,9 @@
 import React from 'react'
-import MovieList, { Result } from './MovieList';
+import MovieList, { Result } from '../MovieList';
 import styles from './Movie.module.css';
-import leftArrow from '../assets/left-arrow.svg'
-import RightArrow from '../assets/right-arrow.svg'
-import { Item } from './Home';
+import leftArrow from '../../assets/left-arrow.svg'
+import RightArrow from '../../assets/right-arrow.svg'
+import { Item } from '../Home';
 
 const Movie= ({ item }: { item: Item }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
