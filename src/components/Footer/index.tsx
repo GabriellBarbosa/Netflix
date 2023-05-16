@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Footer.module.css';
+import styles from './style.module.css';
 import Github from '../../assets/github.svg';
 import Linkedin from '../../assets/linkedin.svg';
 
