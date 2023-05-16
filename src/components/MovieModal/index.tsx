@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MovieModal.module.css';
+import styles from './style.module.css';
 import { GlobalContext } from '../../GlobalContext';
 import { pullData, api_key } from '../../api';
 import ReactPlayer from 'react-player';
