@@ -4,7 +4,7 @@ import { movieList, api_key, pullData } from './api';
 import { MovieContext } from './GlobalContext';
 
 // componentes
-import Home from './components/Home/Home';
+import Home from './components/Home';
 import FeaturedMovieInfo from './components/FeaturedMovieInfo';
 import MovieModal from './components/MovieModal';
 import Loading from './components/Loading';
