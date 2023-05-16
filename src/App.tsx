@@ -5,7 +5,7 @@ import { MovieContext } from './GlobalContext';
 
 // componentes
 import Home from './components/Home';
-import FeaturedMovieInfo from './components/FeaturedMovieInfo/FeaturedMovieInfo';
+import FeaturedMovieInfo from './components/FeaturedMovieInfo';
 import MovieModal from './components/MovieModal';
 import Loading from './components/Loading';
 import Header from './components/Header';
