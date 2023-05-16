@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Header.module.css';
+import styles from './style.module.css';
 import Search from '../../assets/Search.svg';
 import Gift from '../../assets/Gift.svg';
 import Notification from '../../assets/Notification.svg';
