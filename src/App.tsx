@@ -7,7 +7,7 @@ import { MovieContext } from './GlobalContext';
 import Home from './components/Home';
 import FeaturedMovieInfo from './components/FeaturedMovieInfo';
 import MovieModal from './components/MovieModal';
-import Loading from './components/Loading';
+import Loading from './components/Loading/Loading';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Result } from './components/MovieList';
