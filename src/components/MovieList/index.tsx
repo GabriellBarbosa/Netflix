@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MovieList.module.css';
+import styles from './style.module.css';
 import Play from '../../assets/Play.svg';
 import Like from '../../assets/Like.svg';
 import AddToList from '../../assets/Plus.svg';
