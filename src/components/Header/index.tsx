@@ -25,7 +25,7 @@ const Header = () => {
   }, [])
 
   return (
-    <header ref={header} className={styles.header}>
+    <header data-testid="header" ref={header} className={styles.header}>
       <div className={`${styles.headerContent} container`}>
         <div className={styles.logoAndNav_wrapper}>
           <img 
