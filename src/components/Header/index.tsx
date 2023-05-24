@@ -12,7 +12,7 @@ const Header = () => {
   React.useEffect(() => {
     const handleScroll = () => {
       if (header.current) {
-        const topDistance = window.pageYOffset
+        const topDistance = window.scrollY
         const element = header.current
         if (topDistance > 60) element.classList.add(styles.active);
         else element.classList.remove(styles.active);
