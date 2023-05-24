@@ -2,16 +2,15 @@ import React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
 import Header from './index';
     
-test('toggle active class on scroll', () => {
+test("add active class on scroll if scrollY is greater than 60 or remove if it's not", () => {
     render(<Header/>);
+    const headerElement = screen.getByTestId('header');
 
     window.scrollY = 61;
     fireEvent.scroll(window);
-    const headerElement1 = screen.getByTestId('header');
-    expect(headerElement1.classList).toContain('active');
+    expect(headerElement.classList).toContain('active');
 
     window.scrollY = 60;
     fireEvent.scroll(window);
-    const headerElement2 = screen.getByTestId('header');
-    expect(headerElement2.classList).not.toContain('active');
+    expect(headerElement.classList).not.toContain('active');
 });
