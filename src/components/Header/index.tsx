@@ -7,37 +7,38 @@ import User from '../../assets/User.png';
 import Logo from '../../assets/logo-mobile.png';
 
 const Header = () => {
-  const header = React.useRef<HTMLElement>(null);
+  const headerElement = React.useRef<HTMLElement>(null);
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      if (header.current) {
-        const topDistance = window.scrollY
-        const element = header.current
-        if (topDistance > 60) element.classList.add(styles.active);
-        else element.classList.remove(styles.active);
+    const changeBackgroundColor = () => {
+      if (headerElement.current) {
+        if (window.scrollY > 60) {
+          headerElement.current.classList.add(styles.active);
+        } else {
+          headerElement.current.classList.remove(styles.active);
+        }
       }
     }
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', changeBackgroundColor);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', changeBackgroundColor);
     }
-  }, [])
+  }, []);
 
   return (
-    <header data-testid="header" ref={header} className={styles.header}>
+    <header ref={headerElement} className={styles.header} data-testid="header">
       <div className={`${styles.headerContent} container`}>
         <div className={styles.logoAndNav_wrapper}>
           <img 
-          className={styles.logo} 
-          src='https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg' 
-          alt='Netflix Logo' 
+            className={styles.logo} 
+            src='https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg' 
+            alt='Netflix Logo' 
           />
-          {/* Logo para mobile */}
           <img 
-          className={styles.logoMobile} 
-          src={Logo} 
-          alt='Netflix Logo' 
+            className={styles.logoMobile} 
+            src={Logo} 
+            alt='Netflix Logo' 
           />
           <nav className={styles.menuNav}>
             <ul className={styles.navList}>
@@ -66,4 +67,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;
