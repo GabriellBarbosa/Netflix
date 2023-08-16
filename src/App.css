@@ -85,3 +85,10 @@ button:disabled {
     }
   }
 }
+
+:root {
+  --font-large: 42px;
+  --font-medium: 24px;
+  --font-normal: 16px;
+  --font-small: 12px;
+}

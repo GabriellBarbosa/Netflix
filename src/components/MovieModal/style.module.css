@@ -23,7 +23,7 @@
   padding: 20px 40px;
 }
 .title {
-  font-size: 24px;
+  font-size: var(--font-medium);
   margin-bottom: 10px;
 }
 .voteAndRelease {
