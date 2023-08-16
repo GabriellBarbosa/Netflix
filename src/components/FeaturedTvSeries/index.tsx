@@ -39,7 +39,7 @@ const FeaturedTvSeries = ({ tvSeries }: Args) => {
             </div>
             <p className={styles.overview}>{tvSeries.overview}</p>
             <button className={styles.modalButton} onClick={openModal}>
-              <img className={styles.infoImg} src={infoImg} alt="Informações" />
+              <img className={styles.infoImg} src={infoImg} alt="Info" />
               Trailer
             </button>
           </div>
