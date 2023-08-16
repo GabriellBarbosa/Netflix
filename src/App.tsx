@@ -5,7 +5,7 @@ import { MovieContext } from './GlobalContext';
 
 // componentes
 import Home from './components/Home';
-import FeaturedMovieInfo from './components/FeaturedMovieInfo';
+import FeaturedTvSeries from './components/FeaturedTvSeries';
 import MovieModal from './components/MovieModal';
 import Loading from './components/Loading';
 import Header from './components/Header';
@@ -53,7 +53,7 @@ const App = () => {
       <MovieContext>
         <div className="fadeIn">
           <Header />   
-          <FeaturedMovieInfo featured={featured} />
+          <FeaturedTvSeries tvSeries={featured} />
           <Home data={data} />
           <MovieModal />
           <Footer />
