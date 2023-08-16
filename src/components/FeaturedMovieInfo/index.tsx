@@ -51,10 +51,8 @@ const FeaturedMovieInfo = ({ featured }: { featured: FeaturedMovie }) => {
             </div>
             <p className={styles.overview}>{featured.overview}</p>
             <div className={styles.buttonWrapper}>
-              <button disabled className={`${styles.callToAction}`}>+ My list</button>
-              <button disabled className={styles.callToAction}>► Watch</button>
               <button className={styles.callToAction} onClick={openModal}>
-                <img className={styles.infoImg} src={infoImg} alt="I" />More info
+                <img className={styles.infoImg} src={infoImg} alt="I" />Trailer
               </button>
             </div>
           </div>
