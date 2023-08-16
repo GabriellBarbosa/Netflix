@@ -15,7 +15,6 @@ interface FeaturedMovie {
 
 const FeaturedMovieInfo = ({ featured }: { featured: FeaturedMovie }) => {
   const tvContext = React.useContext(GlobalContext);
-  // const {setId, setOpen, setType} = tvContext;
   const context = tvContext;
 
   const voteAverage = String(featured.vote_average.toFixed(1)).replace('.', '');
