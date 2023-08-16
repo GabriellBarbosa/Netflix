@@ -1,3 +1,11 @@
+.banner {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
 .verticalEffect, .horizontalEffect {
   width: inherit;
   height: inherit;
@@ -11,7 +19,7 @@
   justify-content: center;
 }
 
-.movieName {
+.title {
   font-size: var(--font-large);
   max-width: 500px;
   line-height: 1.4;
@@ -65,7 +73,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .movieInfoImg {
+  .banner {
     height: 90vh !important;
   }
 
@@ -83,7 +91,7 @@
     display: none;
   }
 
-  .movieName {
+  .title {
     margin-top: 80px;
     margin-bottom: 5px;
     font-size: var(--font-medium);

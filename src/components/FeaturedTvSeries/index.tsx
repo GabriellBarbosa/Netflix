@@ -14,28 +14,22 @@ const FeaturedTvSeries = ({ tvSeries }: Args) => {
   const season = tvSeries.number_of_seasons > 1 ? "seasons" : "season";
 
   const openModal = () => {
-    console.log(tvSeries)
     globalContext?.setType("tv");
     globalContext?.setId(tvSeries.id);
     globalContext?.setOpen(true);
   };
 
   return (
-    <div
-      className={styles.movieInfoImg}
+    <div 
+      className={styles.banner} 
       style={{
-        background: `url('https://image.tmdb.org/t/p/original/${tvSeries.backdrop_path}')`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
-        backgroundSize: "cover",
-        width: "100%",
-        height: "100vh",
+        backgroundImage: `url('https://image.tmdb.org/t/p/original/${tvSeries.backdrop_path}')`,
       }}
     >
       <div className={styles.verticalEffect}>
         <div className={styles.horizontalEffect}>
           <div className="container">
-            <h1 className={styles.movieName}>{tvSeries.name}</h1>
+            <h1 className={styles.title}>{tvSeries.name}</h1>
             <div className={styles.infoWrapper}>
               <p className={styles.info}>{voteAverage}% Relevant</p>
               <p className={styles.info}>{tvSeries.first_air_date.slice(0, 4)}</p>
