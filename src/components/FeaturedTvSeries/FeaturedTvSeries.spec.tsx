@@ -1,7 +1,7 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import FeaturedMovie from "./index";
-import { aTvSeries } from "./FeaturedMovie.mock";
+import { aTvSeries } from "./FeaturedTvSeries.mock";
 
 test("add active class on scroll if scrollY is greater than 60 or remove if it's not", () => {
   render(<FeaturedMovie tvSeries={aTvSeries} />);

@@ -15,7 +15,7 @@ const FeaturedTvSeries = ({ tvSeries }: Args) => {
 
   const openModal = () => {
     console.log(tvSeries)
-    globalContext?.setType("tv"); // why tv?
+    globalContext?.setType("tv");
     globalContext?.setId(tvSeries.id);
     globalContext?.setOpen(true);
   };
