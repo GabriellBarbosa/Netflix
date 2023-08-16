@@ -31,7 +31,7 @@
 .navList {
   display: flex;
   gap: 20px;
-  font-size: 14px;
+  font-size: var(--font-normal);
   font-weight: 500;
   opacity: 0.8;
 }
@@ -45,7 +45,7 @@
 }
 .kids {
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: var(--font-normal);
 }
 .doAction {
   width: 22px;
