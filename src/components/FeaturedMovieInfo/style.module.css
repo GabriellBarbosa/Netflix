@@ -1,5 +1,4 @@
-.verticalEffect,
-.horizontalEffect {
+.verticalEffect, .horizontalEffect {
   width: inherit;
   height: inherit;
   background: linear-gradient(to right, #141414 15%, transparent 85%);
@@ -42,7 +41,6 @@
 
 .buttonWrapper {
   display: flex;
-  gap: 8px;
 }
 
 .callToAction {
@@ -102,7 +100,7 @@
   }
 
   .buttonWrapper {
-    text-align: center;
+    justify-content: center;
   }
 
   .callToAction {
