@@ -15,14 +15,12 @@ interface FeaturedMovie {
 
 const FeaturedMovieInfo = ({ featured }: { featured: FeaturedMovie }) => {
   const tvContext = React.useContext(GlobalContext);
-  const context = tvContext;
-
   const voteAverage = String(featured.vote_average.toFixed(1)).replace('.', '');
   
-  const handleClick = () => {
-    context?.setType('tv');
-    context?.setId(featured.id);
-    context?.setOpen(true);
+  const openModal = () => {
+    tvContext?.setType('tv');
+    tvContext?.setId(featured.id);
+    tvContext?.setOpen(true);
   }
 
   return (
@@ -55,7 +53,7 @@ const FeaturedMovieInfo = ({ featured }: { featured: FeaturedMovie }) => {
             <div className={styles.buttonWrapper}>
               <button disabled className={`${styles.callToAction}`}>+ My list</button>
               <button disabled className={styles.callToAction}>► Watch</button>
-              <button className={styles.callToAction} onClick={handleClick}>
+              <button className={styles.callToAction} onClick={openModal}>
                 <img className={styles.infoImg} src={infoImg} alt="I" />More info
               </button>
             </div>
