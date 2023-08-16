@@ -14,13 +14,14 @@ interface FeaturedMovie {
 }
 
 const FeaturedMovieInfo = ({ featured }: { featured: FeaturedMovie }) => {
-  const tvContext = React.useContext(GlobalContext);
+  const globalContext = React.useContext(GlobalContext);
   const voteAverage = String(featured.vote_average.toFixed(1)).replace('.', '');
-  
+  const season = featured.number_of_seasons > 1 ? 'seasons' : 'season';
+
   const openModal = () => {
-    tvContext?.setType('tv');
-    tvContext?.setId(featured.id);
-    tvContext?.setOpen(true);
+    globalContext?.setType('tv');
+    globalContext?.setId(featured.id);
+    globalContext?.setOpen(true);
   }
 
   return (
@@ -37,24 +38,16 @@ const FeaturedMovieInfo = ({ featured }: { featured: FeaturedMovie }) => {
       <div className={styles.verticalEffect}>
         <div className={styles.horizontalEffect}>
           <div className="container">
-            <h1 className={styles.movieName}>{featured.name}</h1>
-            <div className={styles.serieInfo}>
-              <p className={styles.serieInfoItem}>{voteAverage}% Relevant</p>
-              <p className={styles.serieInfoItem}>{featured.first_air_date.slice(0, 4)}</p>
-              <p className={styles.serieInfoItem}>
-                {
-                  featured.number_of_seasons > 1 
-                  ? `${featured.number_of_seasons} seasons `
-                  : ` ${featured.number_of_seasons} season`
-                }
-              </p>
+            <h1 className={styles.movieName}>{ featured.name }</h1>
+            <div className={styles.infoWrapper}>
+              <p className={styles.info}>{ voteAverage }% Relevant</p>
+              <p className={styles.info}>{ featured.first_air_date.slice(0, 4) }</p>
+              <p className={styles.info}>{ featured.number_of_seasons + ' ' + season }</p>
             </div>
             <p className={styles.overview}>{featured.overview}</p>
-            <div className={styles.buttonWrapper}>
-              <button className={styles.callToAction} onClick={openModal}>
-                <img className={styles.infoImg} src={infoImg} alt="I" />Trailer
-              </button>
-            </div>
+            <button className={styles.modalButton} onClick={openModal}>
+              <img className={styles.infoImg} src={infoImg} alt="Informações" />Trailer
+            </button>
           </div>
         </div>
       </div>

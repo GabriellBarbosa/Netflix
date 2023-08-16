@@ -17,13 +17,13 @@
   line-height: 1.4;
 }
 
-.serieInfo {
+.infoWrapper {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.serieInfoItem {
+.info {
   border-radius: 10px;
   font-weight: bold;
   opacity: 0.9;
@@ -39,11 +39,7 @@
   overflow: auto;
 }
 
-.buttonWrapper {
-  display: flex;
-}
-
-.callToAction {
+.modalButton {
   padding: 10px 30px;
   font-size: var(--font-normal);
   font-weight: 600;
@@ -57,10 +53,9 @@
   gap: 8px;
   cursor: pointer;
   transition: all 0.3s;
-
 }
 
-.callToAction:hover {
+.modalButton:hover {
   opacity: 0.8;
 }
 
@@ -95,15 +90,11 @@
     text-align: center;
   }
 
-  .serieInfo {
+  .infoWrapper {
     justify-content: center;
   }
 
-  .buttonWrapper {
-    justify-content: center;
-  }
-
-  .callToAction {
+  .modalButton {
     padding: 10px 10px;
     font-size: var(--font-small);
     font-weight: bold;
@@ -111,5 +102,6 @@
     border-radius: 5px;
     background: #4b4c4c;
     color: #f3f3f3;
+    margin: 0 auto;
   }
 }
