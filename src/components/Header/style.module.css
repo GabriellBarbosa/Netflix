@@ -8,68 +8,33 @@
   transition: all 0.6s ease;
   z-index: 999;
 }
+
 .header.active {
   background: rgba(0, 0, 0, 1);
 }
-.headerContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.logoAndNav_wrapper {
+
+.wrapper {
   display: flex;
   align-items: center;
   gap: 44px;
 }
-.logo {
+
+.logoDesktop {
   width: 100px;
   height: 30px;
 }
+
 .logoMobile {
   display: none;
 }
-.navList {
-  display: flex;
-  gap: 20px;
-  font-size: var(--font-normal);
-  font-weight: 500;
-  opacity: 0.8;
-}
-.navMobile {
-  display: none;
-}
-.userWrapper {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.kids {
-  text-transform: uppercase;
-  font-size: var(--font-normal);
-}
-.doAction {
-  width: 22px;
-  height: 22px;
-}
-.userImg {
-  width: 32px;
-  height: 32px;
-  border-radius: 2px;
-}
+
 @media screen and (max-width: 900px) {
-  .userWrapper,
-  .menuNav,
-  .logo {
+  .logoDesktop {
     display: none;
   }
+
   .logoMobile {
     display: block;
     width: 25px;
-  }
-  .navMobile {
-    flex: auto;
-    justify-content: space-evenly;
-    display: flex;
-    opacity: 0.8;
   }
 }
