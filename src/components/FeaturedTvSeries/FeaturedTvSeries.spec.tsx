@@ -16,5 +16,5 @@ test("release year", () => {
   const releaseYearElement = screen.getByTestId('releaseYear');
 
   expect(aTvSeries.first_air_date).toBe('2005-09-13');
-  expect(releaseYearElement.innerHTML).toBe('200');
+  expect(releaseYearElement.innerHTML).toBe('2005');
 });
