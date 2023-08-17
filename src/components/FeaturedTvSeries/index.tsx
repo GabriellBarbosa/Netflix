@@ -34,7 +34,7 @@ const FeaturedTvSeries = ({ aTvSeries }: Args) => {
             <div className={styles.infoWrapper}>
               <p className={styles.info} data-testid="voteAverage">{voteAverage}% Relevant</p>
               <p className={styles.info} data-testid="releaseYear">{releaseYear}</p>
-              <p className={styles.info}>
+              <p className={styles.info} data-testid="numberOfSeasons">
                 {aTvSeries.number_of_seasons + " " + season}
               </p>
             </div>
