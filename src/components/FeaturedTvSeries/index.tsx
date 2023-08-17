@@ -15,9 +15,11 @@ const FeaturedTvSeries = ({ aTvSeries }: Args) => {
   const releaseYear = aTvSeries.first_air_date.slice(0, 4);
   
   const openModal = () => {
-    globalContext?.setType("tv");
-    globalContext?.setId(aTvSeries.id);
-    globalContext?.setOpen(true);
+    if (globalContext) {
+      globalContext.setType("tv");
+      globalContext.setId(aTvSeries.id);
+      globalContext.setOpen(true);
+    }
   };
 
   return (
