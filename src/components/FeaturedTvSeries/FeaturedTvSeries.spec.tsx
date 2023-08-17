@@ -1,17 +1,12 @@
 import React from "react";
 import FeaturedTvSeries from "./index";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { aTvSeries } from "./FeaturedTvSeries.mock";
 
-test("set", () => {
+test("vote average", () => {
   render(<FeaturedTvSeries aTvSeries={aTvSeries} />);
-  const headerElement = screen.getByTestId("header");
+  const voteAverageElement = screen.getByTestId('voteAverage');
 
-  window.scrollY = 61;
-  fireEvent.scroll(window);
-  expect(headerElement.classList).toContain("active");
-
-  window.scrollY = 60;
-  fireEvent.scroll(window);
-  expect(headerElement.classList).not.toContain("active");
+  expect(aTvSeries.vote_average).toBe(8.275);
+  expect(voteAverageElement.innerHTML).toBe('83% Relevant');
 });
