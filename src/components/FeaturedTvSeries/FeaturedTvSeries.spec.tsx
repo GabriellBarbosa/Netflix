@@ -10,3 +10,11 @@ test("vote average", () => {
   expect(aTvSeries.vote_average).toBe(8.275);
   expect(voteAverageElement.innerHTML).toBe('83% Relevant');
 });
+
+test("release year", () => {
+  render(<FeaturedTvSeries aTvSeries={aTvSeries} />);
+  const releaseYearElement = screen.getByTestId('releaseYear');
+
+  expect(aTvSeries.first_air_date).toBe('2005-09-13');
+  expect(releaseYearElement.innerHTML).toBe('200');
+});

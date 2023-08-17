@@ -12,7 +12,7 @@ const FeaturedTvSeries = ({ aTvSeries }: Args) => {
   const globalContext = React.useContext(GlobalContext);
   const voteAverage = String(aTvSeries.vote_average.toFixed(1)).replace(".", "");
   const season = aTvSeries.number_of_seasons > 1 ? "seasons" : "season";
-  console.log(voteAverage)
+
   const openModal = () => {
     globalContext?.setType("tv");
     globalContext?.setId(aTvSeries.id);
@@ -32,7 +32,7 @@ const FeaturedTvSeries = ({ aTvSeries }: Args) => {
             <h1 className={styles.title}>{aTvSeries.name}</h1>
             <div className={styles.infoWrapper}>
               <p className={styles.info} data-testid="voteAverage">{voteAverage}% Relevant</p>
-              <p className={styles.info}>{aTvSeries.first_air_date.slice(0, 4)}</p>
+              <p className={styles.info} data-testid="releaseYear">{aTvSeries.first_air_date.slice(0, 4)}</p>
               <p className={styles.info}>
                 {aTvSeries.number_of_seasons + " " + season}
               </p>
