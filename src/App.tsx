@@ -53,7 +53,7 @@ const App = () => {
       <MovieContext>
         <div className="fadeIn">
           <Header />   
-          <FeaturedTvSeries tvSeries={featured} />
+          <FeaturedTvSeries aTvSeries={featured} />
           <Home data={data} />
           <MovieModal />
           <Footer />
