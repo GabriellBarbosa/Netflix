@@ -42,6 +42,14 @@ const Movie= ({ item }: { item: Item }) => {
   const scrollRight = () => {
     const scroll = scrollConfig();
     if (scroll) {
+      /*
+      list total width
+      screen width
+      
+      magic numbers: 
+        302 = card width; 
+        60  = padding in container;
+      */
       const listWidth = item.items.response.results.length * 302 - window.innerWidth + 60;
       const { element, halfScreenWidth, translateX } = scroll;
       // se o valor do movimento + o translateX for maior do que
