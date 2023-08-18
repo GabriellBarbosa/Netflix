@@ -1,7 +1,7 @@
 import React from "react";
 import FeaturedTvSeries from "./index";
 import { render, screen } from "@testing-library/react";
-import { aTvSeries } from "./FeaturedTvSeries.mock";
+import { aTvSeries } from "../../utils/mock/FeaturedTvSeries.mock";
 import { cloneDeep } from "../../utils/function/cloneDeep";
 
 test("vote average", () => {
