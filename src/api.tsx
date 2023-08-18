@@ -1,3 +1,5 @@
+import { Media } from "./utils/model/Media";
+
 const baseURL = 'https://api.themoviedb.org/3/';
 export const api_key = 'f91aada4d1ee567f301885f614e26e94';
 
@@ -12,7 +14,7 @@ export const pullData = async (endpoint: string) => {
 export const movieList = {
   // Retorna objetos dentro de uma array
   // com o titulo da lista e uma lista de filmes ou series
-  api: async () => (
+  api: async (): Promise<Media[]> => (
     [
       {
         type: 'all',

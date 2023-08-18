@@ -7,7 +7,7 @@ import { Item } from '../Home';
 
 const Movie= ({ item }: { item: Item }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
-
+  console.log(item);
   // Pega o valor do translateX da lista de filmes. Se não
   // tiver translateX definido o translateX recebe 0
   const scrollConfig = () => {
@@ -30,8 +30,10 @@ const Movie= ({ item }: { item: Item }) => {
     const scroll = scrollConfig();
     if (scroll) {
       const { element, halfScreenWidth, translateX } = scroll;
-      // se o valor do movimento for maior do que 0
-      // a lista não irá mais para a esquerda
+      /* 
+      if exceed left limit return zero
+      else return half screen + translateX
+      */
       let slide = (halfScreenWidth + Number(translateX)) > 0 
         ? 0 
         : (halfScreenWidth + Number(translateX));
