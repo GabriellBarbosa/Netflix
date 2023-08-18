@@ -8,7 +8,7 @@ import DownArrow from '../../assets/down-arrow.svg';
 import { GlobalContext } from '../../GlobalContext';
 
 export interface Result {
-  id: string;
+  id: number;
   name: string;
   title: string;
   overview: string;
