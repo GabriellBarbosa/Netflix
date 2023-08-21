@@ -4,8 +4,9 @@ import styles from './style.module.css';
 import leftArrow from '../../assets/left-arrow.svg'
 import RightArrow from '../../assets/right-arrow.svg'
 import { Item } from '../Home';
+import { Media } from '../../utils/model/Media';
 
-const Movie= ({ item }: { item: Item }) => {
+const Movie= ({ item }: { item: Media }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
   console.log(item);
   // Pega o valor do translateX da lista de filmes. Se não

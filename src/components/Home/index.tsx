@@ -1,6 +1,7 @@
 import React from 'react'
 import Movie from '../Movie';
 import { Result } from '../MovieList';
+import { Media } from '../../utils/model/Media';
 
 export interface Item {
   title: string;
@@ -13,7 +14,7 @@ export interface Item {
   }
 }
 
-const Home = ({data}: { data: Item[] }) => {
+const Home = ({data}: { data: Media[] }) => {
   if(!data) return null;
   return (
     <main>
