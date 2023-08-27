@@ -58,12 +58,6 @@ const Movie= ({ item }: { item: Media }) => {
       const { element, halfScreenWidth, translateX } = scroll;
       // se o valor do movimento + o translateX for maior do que
       // que a largura do lista, a lista não irá mais para a direita
-      if (-(halfScreenWidth - Number(translateX)) < -listWidth) {
-        console.log(`Max`)
-      } else {
-        console.log(`Go more`)
-        console.log(Number(translateX))
-      }
       let slide = -(halfScreenWidth - Number(translateX)) < -listWidth 
         ? -listWidth 
         : -(halfScreenWidth - Number(translateX));
