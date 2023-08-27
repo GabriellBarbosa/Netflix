@@ -18,7 +18,7 @@ const Movie= ({ item }: { item: Media }) => {
       const matrix = style.transform;
       console.log(`slideAA`, element.style.transform )
 
-      const translateX = matrix.replace('matrix', '').replace('(', '').replace(')', '').split(', ')[4] || 0;
+      const translateX = getTranslateX(element.style.transform);
       return {
         element, 
         halfScreenWidth, 
@@ -62,10 +62,30 @@ const Movie= ({ item }: { item: Media }) => {
       const { element, halfScreenWidth, translateX } = scroll;
       // se o valor do movimento + o translateX for maior do que
       // que a largura do lista, a lista não irá mais para a direita
+      if (-(halfScreenWidth - Number(translateX)) < -listWidth) {
+        console.log(`Max`)
+      } else {
+        console.log(`Go more`)
+        console.log(Number(translateX))
+      }
       let slide = -(halfScreenWidth - Number(translateX)) < -listWidth 
         ? -listWidth 
         : -(halfScreenWidth - Number(translateX));
       element.style.transform = `translate3d(${slide}px, 0, 0)`;
+    }
+  }
+
+  function getTranslateX(value: string) {
+    if (value) {
+      const translateX = value
+        .replace('translate3d', '')
+        .replace('(', '')
+        .replace(')', '')
+        .split(', ')[0]
+        .replace('px', '');
+      return Number(translateX);
+    } else {
+      return 0;
     }
   }
   

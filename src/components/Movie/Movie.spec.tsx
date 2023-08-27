@@ -20,25 +20,20 @@ describe('Movie Component', () => {
     expect(newTranslateX).toBe( -(window.innerWidth / 2) + oldTranslateX );
   });
 
-  it('slide to right untill the max allowed', () => {
+  it('slide to right till the max allowed', () => {
     const CARD_WIDTH = 302;
     const MOVIE_LIST_PADDING = 60;
-    const WINDOW_INNER_WIDTH = window.innerWidth;
-  
     const numberOfMedias = media.items.response.results.length;
-    const maxTranslateX = (numberOfMedias * CARD_WIDTH) - (WINDOW_INNER_WIDTH + MOVIE_LIST_PADDING);
-    
-    const translateXBeforeClick = getTranslateX(movieList.style.transform);
-    fireEvent.click(rightButton);
-    fireEvent.click(rightButton);
-    fireEvent.click(rightButton);
-    fireEvent.click(rightButton);
-    fireEvent.click(rightButton);
-    fireEvent.click(rightButton);
+
+    const maxTranslateX = ((numberOfMedias * CARD_WIDTH) + MOVIE_LIST_PADDING) - window.innerWidth;
+
+    let countClicks = 0;
+    while(countClicks < 10) {
+      fireEvent.click(rightButton);
+      countClicks += 1;
+    }
   
-  
-    const translateXAfterClick = getTranslateX(movieList.style.transform);
-    expect(translateXAfterClick).toBe( -(WINDOW_INNER_WIDTH / 2 - translateXBeforeClick) );
+    expect(getTranslateX(movieList.style.transform)).toBe( -(maxTranslateX) );
   });
 })
 
