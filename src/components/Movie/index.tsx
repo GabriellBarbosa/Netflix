@@ -16,6 +16,8 @@ const Movie= ({ item }: { item: Media }) => {
       const halfScreenWidth = window.innerWidth / 2;
       const style = window.getComputedStyle(element);
       const matrix = style.transform;
+      console.log(`slideAA`, element.style.transform )
+
       const translateX = matrix.replace('matrix', '').replace('(', '').replace(')', '').split(', ')[4] || 0;
       return {
         element, 

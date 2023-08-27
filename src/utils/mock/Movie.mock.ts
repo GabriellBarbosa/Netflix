@@ -12,6 +12,16 @@ const tvSeriesList = [
     cloneDeep(aTvSeries),
     cloneDeep(aTvSeries),
     cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
 ];
 tvSeriesList.forEach((tvSeries, index) => tvSeries.id = index);
 
