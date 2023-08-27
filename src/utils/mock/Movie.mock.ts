@@ -1,22 +1,29 @@
 import { aTvSeries } from './FeaturedTvSeries.mock';
 import { cloneDeep } from '../function/cloneDeep';
 
+const tvSeriesList = [
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+    cloneDeep(aTvSeries),
+];
+tvSeriesList.forEach((tvSeries, index) => tvSeries.id = index);
+
 const media = {
     items: {
         response: {
             page: 1,
             total_pages: 7685,
             total_results: 153689,
-            results: [
-                cloneDeep(aTvSeries),
-                cloneDeep(aTvSeries),
-                cloneDeep(aTvSeries),
-                cloneDeep(aTvSeries),
-                cloneDeep(aTvSeries),
-            ]
+            results: tvSeriesList
         }, 
         request: {
-            body: new ReadableStream(),
             bodyUsed: true,
             headers: new Headers(),
             ok: true,

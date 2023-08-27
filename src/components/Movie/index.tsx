@@ -53,6 +53,10 @@ const Movie= ({ item }: { item: Media }) => {
         302 = card width; 
         60  = padding in container;
       */
+      /* 
+      list if i put the whole list width i will be out of screen thats why i put - innerWidth
+      maxTranslateX
+     */
       const listWidth = item.items.response.results.length * 302 - window.innerWidth + 60;
       const { element, halfScreenWidth, translateX } = scroll;
       // se o valor do movimento + o translateX for maior do que
@@ -70,10 +74,10 @@ const Movie= ({ item }: { item: Media }) => {
       <button className={styles.slideBtn__left} onClick={scrollLeft}>
         <img className={styles.arrowLeft_img} src={leftArrow} alt="arrow to left" />
       </button>
-      <button className={styles.slideBtn__right} onClick={scrollRight}>
+      <button className={styles.slideBtn__right} onClick={scrollRight} data-testid="slideRight">
         <img className={styles.arrowRight_img} src={RightArrow} alt="arrow to right" />
       </button>
-      <div ref={movieList} className={styles.movieList}>
+      <div ref={movieList} className={styles.movieList} data-testid="movieList">
         {item.items.response.results.map((result) => (
           <MovieList key={result.id} result={result} type={item.type} />
         ))}        
