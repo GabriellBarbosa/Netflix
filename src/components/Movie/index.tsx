@@ -5,6 +5,7 @@ import leftArrow from '../../assets/left-arrow.svg'
 import RightArrow from '../../assets/right-arrow.svg'
 import { Item } from '../Home';
 import { Media } from '../../utils/model/Media';
+import { translateX } from '../../utils/function/translateX';
 
 const Movie= ({ item }: { item: Media }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
@@ -14,15 +15,10 @@ const Movie= ({ item }: { item: Media }) => {
     const element = movieList.current;
     if (element) {
       const halfScreenWidth = window.innerWidth / 2;
-      const style = window.getComputedStyle(element);
-      const matrix = style.transform;
-      console.log(`slideAA`, element.style.transform )
-
-      const translateX = getTranslateX(element.style.transform);
       return {
         element, 
         halfScreenWidth, 
-        translateX
+        translateX: translateX(element.style.transform)
       }
     } else {
       return null;
@@ -39,7 +35,7 @@ const Movie= ({ item }: { item: Media }) => {
       let slide = (halfScreenWidth + Number(translateX)) > 0 
         ? 0 
         : (halfScreenWidth + Number(translateX));
-      element.style.transform = `translateX(${slide}px)`
+      element.style.transform = `translate3d(${slide}px, 0, 0)`
     }
   }
 
@@ -72,20 +68,6 @@ const Movie= ({ item }: { item: Media }) => {
         ? -listWidth 
         : -(halfScreenWidth - Number(translateX));
       element.style.transform = `translate3d(${slide}px, 0, 0)`;
-    }
-  }
-
-  function getTranslateX(value: string) {
-    if (value) {
-      const translateX = value
-        .replace('translate3d', '')
-        .replace('(', '')
-        .replace(')', '')
-        .split(', ')[0]
-        .replace('px', '');
-      return Number(translateX);
-    } else {
-      return 0;
     }
   }
   

@@ -2,6 +2,7 @@ import React from "react";
 import Movie from "./index";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { media } from "../../utils/mock/Movie.mock";
+import { translateX } from "../../utils/function/translateX";
 
 describe('Movie Component', () => {
   let rightButton: HTMLElement;
@@ -14,9 +15,9 @@ describe('Movie Component', () => {
   });
 
   it('slide to right', () => {
-    const oldTranslateX = getTranslateX(movieList.style.transform);
+    const oldTranslateX = translateX(movieList.style.transform);
     fireEvent.click(rightButton);
-    const newTranslateX = getTranslateX(movieList.style.transform);
+    const newTranslateX = translateX(movieList.style.transform);
     expect(newTranslateX).toBe( -(window.innerWidth / 2) + oldTranslateX );
   });
 
@@ -33,20 +34,6 @@ describe('Movie Component', () => {
       countClicks += 1;
     }
   
-    expect(getTranslateX(movieList.style.transform)).toBe( -(maxTranslateX) );
+    expect(translateX(movieList.style.transform)).toBe( -(maxTranslateX) );
   });
-})
-
-function getTranslateX(value: string) {
-  if (value) {
-    const translateX = value
-      .replace('translate3d', '')
-      .replace('(', '')
-      .replace(')', '')
-      .split(', ')[0]
-      .replace('px', '');
-    return Number(translateX);
-  } else {
-    return 0;
-  }
-}
+});
