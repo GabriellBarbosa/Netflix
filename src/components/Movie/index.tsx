@@ -8,7 +8,6 @@ import { Media } from '../../utils/model/Media';
 
 const Movie= ({ item }: { item: Media }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
-  console.log(item);
   // Pega o valor do translateX da lista de filmes. Se não
   // tiver translateX definido o translateX recebe 0
   const scrollConfig = () => {
