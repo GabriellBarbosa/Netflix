@@ -14,7 +14,7 @@ const Movie= ({ item }: { item: Media }) => {
   const scrollConfig = () => {
     const element = movieList.current;
     if (element) {
-      const halfScreenWidth = window.innerWidth / 2;
+      const halfScreenWidth = screenHalfWidth();
       return {
         element, 
         halfScreenWidth, 
@@ -24,6 +24,7 @@ const Movie= ({ item }: { item: Media }) => {
       return null;
     }
   }
+
   const scrollLeft = () => {
     const scroll = scrollConfig();
     if (scroll) {
@@ -58,6 +59,10 @@ const Movie= ({ item }: { item: Media }) => {
         : -(halfScreenWidth - Number(translateX));
       element.style.transform = `translate3d(${slide}px, 0, 0)`;
     }
+  }
+
+  function screenHalfWidth() {
+    return window.innerWidth / 2;
   }
   
   return (
