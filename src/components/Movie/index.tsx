@@ -48,7 +48,10 @@ const Movie= ({ item }: { item: Media }) => {
       list if i put the whole list width i will be out of screen thats why i put - innerWidth
       maxTranslateX
      */
-      const listWidth = item.items.response.results.length * 302 - window.innerWidth + 60;
+      const CARD_WIDTH = 302;
+      const MOVIE_LIST_PADDING = 60;
+      const numberOfMedias = item.items.response.results.length;
+      const listWidth = numberOfMedias * CARD_WIDTH - window.innerWidth + MOVIE_LIST_PADDING;
       const { element, translateX } = scroll;
       // se o valor do movimento + o translateX for maior do que
       // que a largura do lista, a lista não irá mais para a direita
