@@ -49,4 +49,15 @@ describe('Movie Component', () => {
 
     expect(newTranslateX).toBe( (window.innerWidth / 2) + oldTranslateX );
   });
+
+  it('slide to left till the min allowed', () => {
+    fireEvent.click(rightButton);
+
+    fireEvent.click(leftButton);
+    fireEvent.click(leftButton);
+    fireEvent.click(leftButton);
+    const newTranslateX = translateX(movieList.style.transform);
+
+    expect(newTranslateX).toBe(0);
+  });
 });
