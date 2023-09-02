@@ -18,7 +18,7 @@ describe('Movie Component', () => {
     const oldTranslateX = translateX(movieList.style.transform);
     fireEvent.click(rightButton);
     const newTranslateX = translateX(movieList.style.transform);
-    expect(newTranslateX).toBe( -(window.innerWidth / 2) + oldTranslateX );
+    expect(newTranslateX).toBe( -((window.innerWidth / 2) - oldTranslateX));
   });
 
   it('slide to right till the max allowed', () => {
