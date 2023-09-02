@@ -28,8 +28,8 @@ const Movie= ({ item }: { item: Media }) => {
     if (scroll) {
       const { element, translateX } = scroll;
       const newTranslateX = halfScreenWidth() + translateX;
-      let slide = newTranslateX > 0 ? 0 : newTranslateX;
-      element.style.transform = `translate3d(${slide}px, 0, 0)`
+      const result = newTranslateX > 0 ? 0 : newTranslateX;
+      element.style.transform = `translate3d(${result}px, 0, 0)`;
     }
   }
 
