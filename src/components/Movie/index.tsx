@@ -36,29 +36,19 @@ const Movie= ({ item }: { item: Media }) => {
   const scrollRight = () => {
     const scroll = scrollConfig();
     if (scroll) {
-      /*
-      list total width
-      screen width
-      
-      magic numbers: 
-        302 = card width; 
-        60  = padding in container;
-      */
-      /* 
-      list if i put the whole list width i will be out of screen thats why i put - innerWidth
-      maxTranslateX
-     */
-      const CARD_WIDTH = 302;
-      const MOVIE_LIST_PADDING = 60;
-      const numberOfMedias = item.items.response.results.length;
-      const maxTranslateX = ((numberOfMedias * CARD_WIDTH) + MOVIE_LIST_PADDING) - window.innerWidth;
       const { element, translateX } = scroll;
-      // se o valor do movimento + o translateX for maior do que
-      // que a largura do lista, a lista não irá mais para a direita
+      const maxTranslateX = getMaxTranslateX();
       const newTranslateX = halfScreenWidth() - translateX;
       const result = newTranslateX > maxTranslateX ? maxTranslateX : newTranslateX;
       element.style.transform = `translate3d(${-(result)}px, 0, 0)`;
     }
+  }
+
+  function getMaxTranslateX() {
+    const CARD_WIDTH = 302;
+    const MOVIE_LIST_PADDING = 60;
+    const numberOfMedias = item.items.response.results.length;
+    return ((numberOfMedias * CARD_WIDTH) + MOVIE_LIST_PADDING) - window.innerWidth;
   }
 
   function halfScreenWidth() {
