@@ -14,7 +14,7 @@ const Movie= ({ item }: { item: Media }) => {
   const scrollConfig = () => {
     const element = movieList.current;
     if (element) {
-      const halfScreenWidth = screenHalfWidth();
+      const halfScreenWidth = halfScreenWidthxxx();
       return {
         element, 
         halfScreenWidth, 
@@ -28,8 +28,8 @@ const Movie= ({ item }: { item: Media }) => {
   const scrollLeft = () => {
     const scroll = scrollConfig();
     if (scroll) {
-      const { element, halfScreenWidth, translateX } = scroll;
-      const newTranslateX = halfScreenWidth + translateX;
+      const { element, translateX } = scroll;
+      const newTranslateX = halfScreenWidthxxx() + translateX;
       let slide = newTranslateX > 0 ? 0 : newTranslateX;
       element.style.transform = `translate3d(${slide}px, 0, 0)`
     }
@@ -51,17 +51,17 @@ const Movie= ({ item }: { item: Media }) => {
       maxTranslateX
      */
       const listWidth = item.items.response.results.length * 302 - window.innerWidth + 60;
-      const { element, halfScreenWidth, translateX } = scroll;
+      const { element, translateX } = scroll;
       // se o valor do movimento + o translateX for maior do que
       // que a largura do lista, a lista não irá mais para a direita
-      let slide = -(halfScreenWidth - Number(translateX)) < -listWidth 
+      let slide = -(halfScreenWidthxxx() - Number(translateX)) < -listWidth 
         ? -listWidth 
-        : -(halfScreenWidth - Number(translateX));
+        : -(halfScreenWidthxxx() - Number(translateX));
       element.style.transform = `translate3d(${slide}px, 0, 0)`;
     }
   }
 
-  function screenHalfWidth() {
+  function halfScreenWidthxxx() {
     return window.innerWidth / 2;
   }
   
