@@ -14,10 +14,8 @@ const Movie= ({ item }: { item: Media }) => {
   const scrollConfig = () => {
     const element = movieList.current;
     if (element) {
-      const halfScreenWidth = halfScreenWidthxxx();
       return {
         element, 
-        halfScreenWidth, 
         translateX: translateX(element.style.transform)
       }
     } else {
@@ -29,7 +27,7 @@ const Movie= ({ item }: { item: Media }) => {
     const scroll = scrollConfig();
     if (scroll) {
       const { element, translateX } = scroll;
-      const newTranslateX = halfScreenWidthxxx() + translateX;
+      const newTranslateX = halfScreenWidth() + translateX;
       let slide = newTranslateX > 0 ? 0 : newTranslateX;
       element.style.transform = `translate3d(${slide}px, 0, 0)`
     }
@@ -54,14 +52,14 @@ const Movie= ({ item }: { item: Media }) => {
       const { element, translateX } = scroll;
       // se o valor do movimento + o translateX for maior do que
       // que a largura do lista, a lista não irá mais para a direita
-      let slide = -(halfScreenWidthxxx() - Number(translateX)) < -listWidth 
+      let slide = -(halfScreenWidth() - Number(translateX)) < -listWidth 
         ? -listWidth 
-        : -(halfScreenWidthxxx() - Number(translateX));
+        : -(halfScreenWidth() - Number(translateX));
       element.style.transform = `translate3d(${slide}px, 0, 0)`;
     }
   }
 
-  function halfScreenWidthxxx() {
+  function halfScreenWidth() {
     return window.innerWidth / 2;
   }
   
