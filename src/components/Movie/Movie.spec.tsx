@@ -6,11 +6,13 @@ import { translateX } from "../../utils/function/translateX";
 
 describe('Movie Component', () => {
   let rightButton: HTMLElement;
+  let leftButton: HTMLElement;
   let movieList: HTMLElement;
 
   beforeEach(() => {
     render(<Movie item={media} />);
     rightButton = screen.getByTestId('slideRight');
+    leftButton = screen.getByTestId('slideLeft');
     movieList = screen.getByTestId('movieList');
   });
 
@@ -35,5 +37,16 @@ describe('Movie Component', () => {
     }
   
     expect(translateX(movieList.style.transform)).toBe( -(maxTranslateX) );
+  });
+
+  it('slide to left', () => {
+    fireEvent.click(rightButton);
+    fireEvent.click(rightButton);
+    const oldTranslateX = translateX(movieList.style.transform);
+
+    fireEvent.click(leftButton);
+    const newTranslateX = translateX(movieList.style.transform);
+
+    expect(newTranslateX).toBe( (window.innerWidth / 2) + oldTranslateX );
   });
 });

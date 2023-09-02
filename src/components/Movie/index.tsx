@@ -68,7 +68,7 @@ const Movie= ({ item }: { item: Media }) => {
   return (
     <section className={`${styles.movieSection} containerMovies`}>
       <p className={styles.sectionTitle}>{item.title}</p>
-      <button className={styles.slideBtn__left} onClick={scrollLeft}>
+      <button className={styles.slideBtn__left} onClick={scrollLeft} data-testid="slideLeft">
         <img className={styles.arrowLeft_img} src={leftArrow} alt="arrow to left" />
       </button>
       <button className={styles.slideBtn__right} onClick={scrollRight} data-testid="slideRight">
