@@ -51,15 +51,13 @@ const Movie= ({ item }: { item: Media }) => {
       const CARD_WIDTH = 302;
       const MOVIE_LIST_PADDING = 60;
       const numberOfMedias = item.items.response.results.length;
-      const listWidth = numberOfMedias * CARD_WIDTH - window.innerWidth + MOVIE_LIST_PADDING;
+      const maxTranslateX = ((numberOfMedias * CARD_WIDTH) + MOVIE_LIST_PADDING) - window.innerWidth;
       const { element, translateX } = scroll;
       // se o valor do movimento + o translateX for maior do que
       // que a largura do lista, a lista não irá mais para a direita
       const newTranslateX = halfScreenWidth() - translateX;
-      let slide = newTranslateX > listWidth 
-        ? -listWidth 
-        : -(newTranslateX);
-      element.style.transform = `translate3d(${slide}px, 0, 0)`;
+      const result = newTranslateX > maxTranslateX ? maxTranslateX : newTranslateX;
+      element.style.transform = `translate3d(${-(result)}px, 0, 0)`;
     }
   }
 
