@@ -53,7 +53,7 @@ const Movie= ({ item }: { item: Media }) => {
       // se o valor do movimento + o translateX for maior do que
       // que a largura do lista, a lista não irá mais para a direita
       const newTranslateX = halfScreenWidth() - translateX;
-      let slide = -(newTranslateX) < -listWidth 
+      let slide = newTranslateX > listWidth 
         ? -listWidth 
         : -(newTranslateX);
       element.style.transform = `translate3d(${slide}px, 0, 0)`;
