@@ -9,8 +9,8 @@ import { translateX } from '../../utils/function/translateX';
 
 const Movie= ({ item }: { item: Media }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
-  // Pega o valor do translateX da lista de filmes. Se não
-  // tiver translateX definido o translateX recebe 0
+  const halfScreenWidth = window.innerWidth / 2;
+
   const scrollConfig = () => {
     const element = movieList.current;
     if (element) {
@@ -27,7 +27,7 @@ const Movie= ({ item }: { item: Media }) => {
     const scroll = scrollConfig();
     if (scroll) {
       const { element, translateX } = scroll;
-      const newTranslateX = halfScreenWidth() + translateX;
+      const newTranslateX = halfScreenWidth + translateX;
       const result = newTranslateX > 0 ? 0 : newTranslateX;
       element.style.transform = `translate3d(${result}px, 0, 0)`;
     }
@@ -38,7 +38,7 @@ const Movie= ({ item }: { item: Media }) => {
     if (scroll) {
       const { element, translateX } = scroll;
       const maxTranslateX = getMaxTranslateX();
-      const newTranslateX = halfScreenWidth() - translateX;
+      const newTranslateX = halfScreenWidth - translateX;
       const result = newTranslateX > maxTranslateX ? maxTranslateX : newTranslateX;
       element.style.transform = `translate3d(${-(result)}px, 0, 0)`;
     }
@@ -49,10 +49,6 @@ const Movie= ({ item }: { item: Media }) => {
     const MOVIE_LIST_PADDING = 60;
     const numberOfMedias = item.items.response.results.length;
     return ((numberOfMedias * CARD_WIDTH) + MOVIE_LIST_PADDING) - window.innerWidth;
-  }
-
-  function halfScreenWidth() {
-    return window.innerWidth / 2;
   }
   
   return (
