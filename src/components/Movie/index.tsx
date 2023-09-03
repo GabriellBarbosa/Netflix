@@ -11,37 +11,29 @@ const Movie= ({ item }: { item: Media }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
   const halfScreenWidth = window.innerWidth / 2;
 
-  const scrollConfig = () => {
-    const element = movieList.current;
-    if (element) {
-      return {
-        element, 
-        translateX: translateX(element.style.transform)
-      }
-    } else {
-      return null;
-    }
-  }
-
   const scrollLeft = () => {
-    const scroll = scrollConfig();
-    if (scroll) {
-      const { element, translateX } = scroll;
-      const newTranslateX = halfScreenWidth + translateX;
+    const element = movieListElement();
+    if (element) {
+      const currentTranslateX = translateX(element.style.transform);
+      const newTranslateX = halfScreenWidth + currentTranslateX;
       const result = newTranslateX > 0 ? 0 : newTranslateX;
       element.style.transform = `translate3d(${result}px, 0, 0)`;
     }
   }
 
   const scrollRight = () => {
-    const scroll = scrollConfig();
-    if (scroll) {
-      const { element, translateX } = scroll;
+    const element = movieListElement();
+    if (element) {
+      const currentTranslateX = translateX(element.style.transform);
       const maxTranslateX = getMaxTranslateX();
-      const newTranslateX = halfScreenWidth - translateX;
+      const newTranslateX = halfScreenWidth - currentTranslateX;
       const result = newTranslateX > maxTranslateX ? maxTranslateX : newTranslateX;
       element.style.transform = `translate3d(${-(result)}px, 0, 0)`;
     }
+  }
+
+  function movieListElement() {
+    return movieList.current;
   }
 
   function getMaxTranslateX() {
