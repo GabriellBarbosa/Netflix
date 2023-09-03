@@ -21,7 +21,7 @@ const Movie= ({ item }: { item: Media }) => {
     }
   }
 
-  const scrollRight = () => {
+  function slideRight() {
     const element = movieListElement();
     if (element) {
       const currentTranslateX = translateX(element.style.transform);
@@ -49,7 +49,7 @@ const Movie= ({ item }: { item: Media }) => {
       <button className={styles.slideBtn__left} onClick={scrollLeft} data-testid="slideLeft">
         <img className={styles.arrowLeft_img} src={leftArrow} alt="arrow to left" />
       </button>
-      <button className={styles.slideBtn__right} onClick={scrollRight} data-testid="slideRight">
+      <button className={styles.slideBtn__right} onClick={slideRight} data-testid="slideRight">
         <img className={styles.arrowRight_img} src={RightArrow} alt="arrow to right" />
       </button>
       <div ref={movieList} className={styles.movieList} data-testid="movieList">
