@@ -11,7 +11,7 @@ const Movie= ({ item }: { item: Media }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
   const halfScreenWidth = window.innerWidth / 2;
 
-  const scrollLeft = () => {
+  function slideLeft() {
     const element = movieListElement();
     if (element) {
       const currentTranslateX = translateX(element.style.transform);
@@ -46,7 +46,7 @@ const Movie= ({ item }: { item: Media }) => {
   return (
     <section className={`${styles.movieSection} containerMovies`}>
       <p className={styles.sectionTitle}>{item.title}</p>
-      <button className={styles.slideBtn__left} onClick={scrollLeft} data-testid="slideLeft">
+      <button className={styles.slideBtn__left} onClick={slideLeft} data-testid="slideLeft">
         <img className={styles.arrowLeft_img} src={leftArrow} alt="arrow to left" />
       </button>
       <button className={styles.slideBtn__right} onClick={slideRight} data-testid="slideRight">
