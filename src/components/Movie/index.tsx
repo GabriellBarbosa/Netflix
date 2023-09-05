@@ -1,13 +1,12 @@
 import React from 'react'
-import MovieList, { Result } from '../MovieList';
+import MovieList from '../MovieList';
 import styles from './style.module.css';
 import leftArrow from '../../assets/left-arrow.svg'
 import RightArrow from '../../assets/right-arrow.svg'
-import { Item } from '../Home';
 import { Media } from '../../utils/model/Media';
 import { translateX } from '../../utils/function/translateX';
 
-const Movie= ({ item }: { item: Media }) => {
+const Movie = ({ item }: { item: Media }) => {
   const movieList = React.useRef<HTMLDivElement>(null);
   const halfScreenWidth = window.innerWidth / 2;
 
@@ -57,7 +56,6 @@ const Movie= ({ item }: { item: Media }) => {
           <MovieList key={result.id} result={result} type={item.type} />
         ))}        
       </div>
-
     </section>
   )
 }
